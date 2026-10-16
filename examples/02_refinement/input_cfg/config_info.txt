@@ -1,0 +1,37 @@
+# === CONFIG INFO (control) ===
+# generated: 2026-10-06T15:22:20
+# command: /home/claude/enumerate_vacancy_configs.py POSCAR_CeO2_110_demo --nvac 2 --mode all --vac-layers surf,subsurf,inner --red-shell both --host-coord 3 4 --r-nn 2.6 --r-nnn 4.8 --min-vac-dist 3.5 --max-bonds-lost 1 --max-red-combos 15 --seed 42 --symprec 0.01 --out out_01
+# ase=3.29.0 spglib=2.7.0
+# dedup=exact_spglib_symmetry symprec=0.01
+# r_nn=2.6 r_nnn=4.8 layer_tol=auto
+# slab_centrado=si vacio=20.00A
+
+config_id        : cfg_00000
+source_poscar    : ../POSCAR_CeO2_110_demo
+n_vacancies      : 2
+mode             : all  |  pair_type: NNN-NNN-NNN-NNN
+dedup_label_hash : 33fe1f6729650619
+POSCAR composition: Ce=8 La=4 O=22
+
+# VACANCIES (indices in the ORIGINAL centered POSCAR, base 0)
+  vac O idx=  12  layer=5  tag=surf_top  face=top  coord_NN=3  xyz=(  0.0000,  4.0582, 19.5654)
+  vac O idx=  13  layer=2  tag=inner_2  face=bottom  coord_NN=4  xyz=(  5.7392,  4.0582, 13.8262)
+
+# Ce3+ (= La in the generated POSCAR)
+  Ce3+ orig_idx=   2  shell=NNN   xyz=(  3.8262,  0.0000, 17.6523)  d(vac12)=4.487A, d(vac13)=4.487A
+  Ce3+ orig_idx=   3  shell=NNN   xyz=(  1.9131,  2.7055, 15.7392)  d(vac12)=4.487A, d(vac13)=4.487A
+  Ce3+ orig_idx=  10  shell=NNN   xyz=(  1.9131,  2.7055, 11.9131)  d(vac12)=8.003A, d(vac13)=4.487A
+  Ce3+ orig_idx=  11  shell=NNN   xyz=(  3.8262,  0.0000, 10.0000)  d(vac12)=10.391A, d(vac13)=4.487A
+
+# POOLS per vacancy (original indices)
+  vac 12: NN=[1, 7, 8]  NNN=[2, 3, 4]
+  vac 13: NN=[4, 5, 6, 9]  NNN=[0, 1, 2, 3, 10, 11]
+
+# La INDICES IN THE WRITTEN POSCAR (verified by coordinate matching)
+  base 0: [8, 9, 10, 11]
+  base 1 (VASP): [9, 10, 11, 12]
+
+# POST-DFT CONTROL
+# 1. Resubstitute La->Ce keeping positions (la_to_ce / prep_vasp).
+# 2. After VASP: magnetization ~1 muB on the target sites, ~0 elsewhere.
+# 3. If any polaron migrated, reclassify NN/NNN using the distances above.
