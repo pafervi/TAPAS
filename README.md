@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# TAPAS
-=======
 # TAPAS: Topology-Aware Polaron Arrangement Sampler
 
 Symmetry-aware enumeration and refinement of anion-vacancy / reduced-cation configurations in oxide slabs.
